@@ -7,7 +7,7 @@
 
 ## Windows
 
-- installer git bash (https://git-scm.com/downloadsinstaller)
+- installer git bash (https://git-scm.com/downloads)
 - installer Python v3.13 (https://www.python.org/downloads/)
 
 Uniquement au 1er lancement (crée un env local, installe les dépendances et lance le projet)
