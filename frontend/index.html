@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Recherche de cartes Altered</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <form id="search-form">
+            <input type="text" id="searchName" placeholder="Nom de la carte...">
+            <input type="text" id="searchEffect" placeholder="Effet recherché...">
+            <select id="factions">
+                <option value=""></option>
+                <option value="Ax">Axiom</option>
+                <option value="Br">Bravos</option>
+                <option value="Ly">Lyra</option>
+                <option value="Mu">Muna</option>
+                <option value="Or">Ordis</option>
+                <option value="Yz">Yzmir</option>
+            </select>
+            <button type="submit">Rechercher</button>
+        </form>
+        <div id="results"></div>
+        <div id="pagination" class="pagination"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
