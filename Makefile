@@ -21,4 +21,4 @@ setup:
 	@make venv && make install && make run
 
 exe:
-	pyinstaller --onefile --distpath app --add-data "frontend;frontend" backend/main.py
+	pyinstaller --name NNY --onefile --distpath app --add-data "frontend;frontend" backend/main.py
