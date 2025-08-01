@@ -52,11 +52,11 @@ h1 {
     color: #333;
 }
 
-#searchName {
+#search-form input {
     grid-column: 1;
 }
 
-#searchEffect {
+#search-form select {
     grid-column: 2;
 }
 

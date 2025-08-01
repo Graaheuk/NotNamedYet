@@ -12,11 +12,9 @@ function getSelectValues(selectElement) {
 
 async function searchCards(pageNumber) {
     const name = document.getElementById("searchName").value;
-    const effect = document.getElementById("searchEffect").value;
     const factions = getSelectValues(document.getElementById("factions"));
 
     const params = new URLSearchParams();
-    if (effect) params.append("effect", effect);
     if (name) params.append("name", name);
     params.append("page", currentPage);
     factions.forEach(f => f !== "" ? params.append("factions", f) : null);

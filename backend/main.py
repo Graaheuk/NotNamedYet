@@ -20,12 +20,11 @@ API_BASE_URL = "https://api.altered.gg"
 def get_cards():
     name = request.args.get("name", "")
     factions = request.args.getlist("factions")
-    effect = request.args.get("effect", "")
     pageNumber = int(request.args.get("pageNumber", 1))
 
     try:
         params = {
-            "query": f"{name} {effect}",
+            "query": name,
             "rarity": "Unique",
             "factions[]": ",".join(factions) if factions else None,
             "page": pageNumber,
