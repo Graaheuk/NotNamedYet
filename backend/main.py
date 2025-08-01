@@ -1,7 +1,18 @@
+import os
+import sys
 from flask import Flask, jsonify, request, send_from_directory
 import requests
+import threading
+import webbrowser
 
-app = Flask(__name__, static_folder="../frontend")
+def get_frontend_path():
+    if getattr(sys, 'frozen', False):  # si en exe
+        base_path = sys._MEIPASS
+    else:
+        base_path = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+    return os.path.join(base_path, "frontend")
+
+app = Flask(__name__, static_folder=get_frontend_path())
 
 API_BASE_URL = "https://api.altered.gg"
 
@@ -48,5 +59,10 @@ def serve_index():
 def serve_static(path):
     return send_from_directory(app.static_folder, path)
 
+
 if __name__ == "__main__":
-    app.run(debug=True)
+    def open_browser():
+        webbrowser.open("http://localhost:5000")
+    
+    threading.Timer(1.0, open_browser).start()
+    app.run()

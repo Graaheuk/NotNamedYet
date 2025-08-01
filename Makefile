@@ -19,3 +19,6 @@ run:
 setup:
 	@echo "🔍 Configuration complète et lancement..."
 	@make venv && make install && make run
+
+exe:
+	pyinstaller --onefile --distpath app --add-data "frontend;frontend" backend/main.py
