@@ -5,6 +5,8 @@
 
 ## Windows
 
+Télécharger ce fichier [main.exe](https://github.com/Graaheuk/NotNamedYet/raw/main/app/main.exe)
+
 # Usage
 
 ## Recherches d'effets :
