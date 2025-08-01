@@ -1,6 +1,7 @@
-# TODO LIST
+# App de recherche Altered
 
-- boot sur une autre machine
+## TODO LIST
+
 - filtres / tris
 
 ## Windows
