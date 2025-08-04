@@ -21,6 +21,8 @@ def get_cards():
     name = request.args.get("name", "")
     factions = request.args.getlist("factions")
     pageNumber = int(request.args.get("pageNumber", 1))
+    sortOrder = request.args.get("sortOrder", "")
+    priceMax = request.args.get("priceMax", "")
 
     try:
         params = {
@@ -28,10 +30,19 @@ def get_cards():
             "rarity": "Unique",
             "factions[]": ",".join(factions) if factions else None,
             "page": pageNumber,
-            "inSale": True,
+            "inSale": "true",
             "itemsPerPage": 30,
             "locale": "fr-fr"
         }
+
+        if sortOrder != "":
+            sortSplit = sortOrder.split("_")
+            params["order[" + sortSplit[0] + "]"] = sortSplit[1]
+
+        if priceMax != "":
+            params["priceMax"] = priceMax
+
+        print(params)
         response = requests.get(API_BASE_URL + "/public/cards", params)
         response.raise_for_status()
         data = response.json()        

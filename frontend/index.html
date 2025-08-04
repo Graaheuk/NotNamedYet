@@ -9,8 +9,9 @@
     <div class="container">
         <form id="search-form">
             <input type="text" id="searchName" placeholder="Nom de la carte ou effet recherché...">
+        
             <select id="factions">
-                <option value=""></option>
+                <option value="">Faction</option>
                 <option value="Ax">Axiom</option>
                 <option value="Br">Bravos</option>
                 <option value="Ly">Lyra</option>
@@ -18,6 +19,22 @@
                 <option value="Or">Ordis</option>
                 <option value="Yz">Yzmir</option>
             </select>
+        
+            <select id="sortOrder">
+                <option value="">Tri</option>
+                <!--<option value="query_ASC">Nom/Effet ↑</option>
+                <option value="query_DESC">Nom/Effet ↓</option>-->
+                <option value="price_ASC">Prix asc.</option>
+                <option value="price_DESC">Prix desc.</option>
+                <option value="mainCost_ASC">Cout de main asc.</option>
+                <option value="mainCost_DESC">Cout de main desc.</option>
+                <option value="recallCost_ASC">Cout de reserve asc.</option>
+                <option value="recallCost_DESC">Cout de reserve desc.</option>
+
+            </select>
+        
+            <input type="number" id="priceMax" placeholder="Prix max" min="0" step="0.01">
+
             <button type="submit">Rechercher</button>
         </form>
         <div id="results"></div>

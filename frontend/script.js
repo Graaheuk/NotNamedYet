@@ -13,12 +13,16 @@ function getSelectValues(selectElement) {
 async function searchCards(pageNumber) {
     const name = document.getElementById("searchName").value;
     const factions = getSelectValues(document.getElementById("factions"));
+    const sortOrder = document.getElementById("sortOrder").value;
+    const priceMax = document.getElementById("priceMax").value;
 
     const params = new URLSearchParams();
     if (name) params.append("name", name);
     params.append("page", currentPage);
     factions.forEach(f => f !== "" ? params.append("factions", f) : null);
     params.append("pageNumber", pageNumber);
+    if (sortOrder) params.append("sortOrder", sortOrder);
+    if (priceMax) params.append("priceMax", priceMax);
 
     const res = await fetch(`/api/cards?${params.toString()}`);
     const data = await res.json();
@@ -48,8 +52,8 @@ async function searchCards(pageNumber) {
         div.innerHTML = `
             <h3>${card.name}</h3>
             ${card.imagePath ? `<img class="cardImage" src="${card.imagePath}" alt="${card.name}" width="150">` : ""}
-            <a target="_blank" rel="noopener noreferrer" href="https://www.altered.gg/fr-fr/cards/${card.reference}">${card.reference}</a>
-            <a target="_blank" rel="noopener noreferrer" href="https://www.altered.gg/fr-fr/cards/${card.reference}/offers">Offres disponibles</a>
+            <p>Reference :</p><a target="_blank" rel="noopener noreferrer" href="https://www.altered.gg/fr-fr/cards/${card.reference}">${card.reference}</a>
+            <p></p><a target="_blank" rel="noopener noreferrer" href="https://www.altered.gg/fr-fr/cards/${card.reference}/offers">Offres disponibles</a>
             <p>${price["hydra:member"].length === 0 ? "Prix Indisponible" : price["hydra:member"][0].price + price["hydra:member"][0].currency }</p>
         `;
         resultsDiv.appendChild(div);
